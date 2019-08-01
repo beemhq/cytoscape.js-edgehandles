@@ -180,6 +180,7 @@ function setHandleFor( node ){
   let { options, cy } = this;
 
   let handlePosition = typeof options.handlePosition === typeof '' ? () => options.handlePosition : options.handlePosition;
+  let positionOffset = options.positionOffset;
 
   let p = node.position();
   let h = node.outerHeight();
@@ -206,8 +207,8 @@ function setHandleFor( node ){
   }
 
   // set handle x and y based on adjusted positions
-  let hx = this.hx = p.x + moveX;
-  let hy = this.hy = p.y + moveY;
+  let hx = this.hx = p.x + positionOffset.x + moveX;
+  let hy = this.hy = p.y + positionOffset.y + moveY;
   let pos = { x: hx, y: hy };
 
   if( this.handleShown() ){
