@@ -347,6 +347,10 @@ var defaults = {
   },
   drawoff: function drawoff() {
     // fired when draw mode disabled
+  },
+  positionOffset: {
+    x: 0,
+    y: 0
   }
 };
 /* eslint-enable */
@@ -586,6 +590,7 @@ function setHandleFor(node) {
   var handlePosition = _typeof(options.handlePosition) === _typeof('') ? function () {
     return options.handlePosition;
   } : options.handlePosition;
+  var positionOffset = options.positionOffset;
 
   var p = node.position();
   var h = node.outerHeight();
@@ -612,8 +617,8 @@ function setHandleFor(node) {
   }
 
   // set handle x and y based on adjusted positions
-  var hx = this.hx = p.x + moveX;
-  var hy = this.hy = p.y + moveY;
+  var hx = this.hx = p.x + positionOffset.x + moveX;
+  var hy = this.hy = p.y + positionOffset.y + moveY;
   var pos = { x: hx, y: hy };
 
   if (this.handleShown()) {

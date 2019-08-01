@@ -73,6 +73,10 @@ let defaults = {
   },
   drawoff: function(){
     // fired when draw mode disabled
+  },
+  positionOffset: {
+      x: 0,
+      y: 0
   }
 };
 /* eslint-enable */
