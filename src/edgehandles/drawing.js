@@ -261,14 +261,15 @@ function updateEdge() {
 
       let ghostEdgeParams = options.ghostEdgeParams();
 
-      ghostEdge = cy.add( assign({}, ghostEdgeParams, {
+      ghostEdge = cy.add(getEleJson({
         group: 'edges',
         data: assign({}, ghostEdgeParams.data, {
           source: sourceNode.id(),
           target: ghostNode.id()
         }),
+        ghostEdgeParams, 
         classes: 'eh-ghost eh-ghost-edge'
-      }) );
+      }));
 
       ghostEdge.style({
         'events': 'no'
